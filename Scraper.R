@@ -10,7 +10,7 @@ Scrape Review date, title, rating, and comments from the first 10 pages of any a
 Amazon.list <- lapply(paste0('##### Amazon App Review Page URL #####', 1:10),
                     function(url){
                       url %>% read_html() %>% 
-                        html_nodes(".review-date,.rating-other-user-rating,.title,.show-more__control") %>% 
+                        html_nodes(".review-date,.review-rating,.a-color-base,.review-text") %>% 
                         html_text() %>%
                         gsub('[\r\n\t]', '', .)
                       
